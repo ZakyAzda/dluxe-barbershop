@@ -46,7 +46,7 @@ export default function AboutSection() {
             </div>
 
             <p className="text-[#a0a0a0] leading-relaxed text-[0.95rem]">
-              Berdiri sejak tahun 2026, D&apos;Luxe Barbershop hadir untuk mendefinisikan ulang
+              Berdiri sejak tahun 2025, D&apos;Luxe Barbershop hadir untuk mendefinisikan ulang
               standar perawatan pria modern. Kami memahami bahwa gaya rambut bukan sekadar
               rutinitas, melainkan bagian dari identitas.
             </p>
