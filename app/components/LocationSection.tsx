@@ -122,7 +122,7 @@ export default function LocationSection() {
               height="100%"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              className="map-grayscale border-0 block w-full h-full"
+              className="border-0 block w-full h-full"
               allowFullScreen
             />
           </div>
