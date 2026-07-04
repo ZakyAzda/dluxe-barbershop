@@ -20,9 +20,9 @@ const WA_NUMBER = "6283121232166";
 const PRICE_TIERS = [
   {
     id: "reguler",
-    badge: null,
-    tier: "Reguler",
-    tagline: "Tampilan rapi & bersih",
+    badge: "D'Luxe Exclusive",
+    tier: "Grooming Service",
+    tagline: "Tampilan rapi, presisi & bersih",
     items: [
       { name: "Potong Rambut", price: "Rp 35.000" },
       { name: "Potong + Cuci Rambut", price: "Rp 40.000" },
@@ -31,34 +31,7 @@ const PRICE_TIERS = [
     ],
     /* Price shown in WA message = starting from */
     displayPrice: "Mulai Rp 5.000",
-  },
-  {
-    id: "premium",
-    badge: "Terpopuler",
-    tier: "Premium",
-    tagline: "Pengalaman grooming lebih lengkap",
-    items: [
-      { name: "Potong + Styling", price: "Rp 45.000" },
-      { name: "Potong + Cuci + Styling", price: "Rp 50.000" },
-      { name: "Cukur Jenggot + Treatment", price: "Rp 25.000" },
-      { name: "Creambath / Hair Mask", price: "Rp 35.000" },
-      { name: "Hair Coloring", price: "Rp 65.000" },
-    ],
-    displayPrice: "Mulai Rp 45.000",
-  },
-  {
-    id: "signature",
-    badge: "D'Luxe Exclusive",
-    tier: "Signature",
-    tagline: "Layanan terbaik all-inclusive",
-    items: [
-      { name: "Full Grooming Package", price: "Rp 150.000" },
-      { name: "Potong + Coloring + Styling", price: "Rp 185.000" },
-      { name: "Gentleman Package", price: "Rp 215.000" },
-      { name: "The D'Luxe Experience", price: "Rp 250.000" },
-    ],
-    displayPrice: "Mulai Rp 150.000",
-  },
+  }
 ];
 
 /* ── State shape for modal ── */
@@ -114,10 +87,11 @@ export default function PriceListSection() {
             <hr className="gold-divider" />
           </motion.div>
 
-          {/* ── 3-Column Pricing Grid ── */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+          {/* ── 1-Column Centered Pricing Grid ── */}
+          <div className="flex justify-center w-full">
+            <div className="w-full max-w-xl">
             {PRICE_TIERS.map((tier, colIdx) => {
-              const isPremium = tier.id === "premium";
+              const isPremium = true; // Selalu pakai styling premium yang ada efek glow gold
               return (
                 <motion.div
                   key={tier.id}
@@ -235,6 +209,7 @@ export default function PriceListSection() {
                 </motion.div>
               );
             })}
+            </div>
           </div>
 
           {/* ── Footnote ── */}
