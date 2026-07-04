@@ -1,26 +1,278 @@
+/* ============================================================
+   D'Luxe Barbershop — Global Styles
+   Tailwind CSS v4 (CSS-first config via @theme)
+   ============================================================ */
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ── Custom Design Tokens ── */
+@theme {
+  /* Color Palette — Dark Luxury */
+  --color-black:        #080808;
+  --color-dark:         #0f0f0f;
+  --color-dark-surface: #161616;
+  --color-dark-card:    #1c1c1c;
+  --color-dark-border:  #2a2a2a;
+
+  /* Gold accent palette */
+  --color-gold:         #c9a84c;
+  --color-gold-light:   #e2c06a;
+  --color-gold-dark:    #9c7e38;
+  --color-gold-muted:   rgba(201, 168, 76, 0.15);
+
+  /* Text colors */
+  --color-text-primary:   #f5f5f5;
+  --color-text-secondary: #a0a0a0;
+  --color-text-muted:     #606060;
+
+  /* Typography */
+  --font-body:    var(--font-inter);
+  --font-heading: var(--font-playfair);;
+
+  /* Spacing extras */
+  --spacing-section: 6rem;
+
+  /* Border radius */
+  --radius-card: 0.75rem;
+
+  /* Transitions */
+  --ease-luxury: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ── Base Reset & Globals ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  background-color: #080808;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #080808;
+  color: #f5f5f5;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ── Selection color ── */
+::selection {
+  background-color: rgba(201, 168, 76, 0.3);
+  color: #f5f5f5;
+}
+
+/* ── Scrollbar styling ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0f0f0f;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c9a84c;
+}
+
+/* ── Custom Keyframe Animations ── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 10px rgba(201, 168, 76, 0.3); }
+  50%       { box-shadow: 0 0 25px rgba(201, 168, 76, 0.6), 0 0 50px rgba(201, 168, 76, 0.2); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+/* ============================================================
+   SECTION PADDING — Guaranteed to work regardless of Tailwind
+   scan. Using plain CSS so it ALWAYS applies.
+   ============================================================ */
+
+/*
+  Main section padding — very generous breathing room.
+  160px top + 160px bottom = 320px total per section.
+*/
+.section-padding {
+  padding-top: 10rem;    /* 160px */
+  padding-bottom: 10rem; /* 160px */
+}
+
+/* Slightly lighter alternate background for visual separation */
+.bg-surface {
+  background-color: #111111;
+}
+
+.bg-base {
+  background-color: #080808;
+}
+
+/*
+  Section separator — thin gold gradient line
+  between each section for clear visual boundaries
+*/
+.section-sep {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #2a2a2a 20%,
+    rgba(201, 168, 76, 0.25) 50%,
+    #2a2a2a 80%,
+    transparent 100%
+  );
+}
+
+/* ── Reusable Utility Classes ── */
+
+/* Gold shimmer text effect */
+.text-gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    #c9a84c 0%,
+    #e2c06a 30%,
+    #f5d98a 50%,
+    #e2c06a 70%,
+    #c9a84c 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+/* Section container */
+.section-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Section heading area — extra breathing room */
+.section-header {
+  text-align: center;
+  margin-bottom: 5rem; /* 80px below header before content */
+}
+
+/* Section heading decoration */
+.section-label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #c9a84c;
+  margin-bottom: 1rem;
+}
+
+/* Section subtitle — always centered, guaranteed pure CSS */
+.section-subtitle {
+  text-align: center;
+  color: #606060;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  max-width: 30rem;
+  margin: 1rem auto 0;
+  display: block;
+}
+
+/* Premium card base */
+.card-dark {
+  background: #1c1c1c;
+  border: 1px solid #2a2a2a;
+  border-radius: 0.75rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card-dark:hover {
+  border-color: rgba(201, 168, 76, 0.4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(201, 168, 76, 0.1);
+  transform: translateY(-4px);
+}
+
+/* Gold divider line — always centered */
+.gold-divider {
+  width: 3rem;
+  height: 2px;
+  background: linear-gradient(90deg, #c9a84c, #e2c06a);
+  border: none;
+  display: block;
+  margin: 1.5rem auto 0;
+}
+
+/* CTA Button — Primary Gold */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background: linear-gradient(135deg, #c9a84c, #9c7e38);
+  color: #080808;
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 0.375rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-luxury);
+  text-decoration: none;
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.btn-gold:hover {
+  transform: scale(1.04);
+  background: linear-gradient(135deg, #e2c06a, #c9a84c);
+  box-shadow: 0 0 30px rgba(201, 168, 76, 0.5), 0 4px 20px rgba(0,0,0,0.4);
+  animation-play-state: paused;
+}
+
+/* CTA Button — Outline */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.375rem;
+  background: transparent;
+  color: #c9a84c;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 0.375rem;
+  border: 1px solid #c9a84c;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-luxury);
+  text-decoration: none;
+}
+
+.btn-outline:hover {
+  background: rgba(201, 168, 76, 0.12);
+  box-shadow: 0 0 16px rgba(201, 168, 76, 0.25);
+  transform: scale(1.02);
+}
+
+/* Grayscale map filter */
+.map-grayscale {
+  filter: grayscale(100%) brightness(0.7) contrast(1.1);
+  transition: filter 0.4s ease;
+}
+
+.map-grayscale:hover {
+  filter: grayscale(80%) brightness(0.8);
 }
