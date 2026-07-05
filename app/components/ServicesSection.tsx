@@ -58,7 +58,7 @@ const SERVICES = [
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="section-padding bg-base">
+    <section id="services" className="section-padding bg-gradient-to-b from-[#080808] to-[#111111]">
       <div className="section-container">
 
         {/* ── Section Header ── */}

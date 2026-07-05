@@ -43,7 +43,7 @@ const INFO_ITEMS = [
 
 export default function LocationSection() {
   return (
-    <section id="location" className="section-padding bg-surface">
+    <section id="location" className="section-padding bg-gradient-to-b from-[#111111] to-[#080808]">
       <div className="section-container">
 
         {/* ── Section Header ── */}

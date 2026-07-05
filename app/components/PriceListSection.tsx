@@ -63,7 +63,7 @@ export default function PriceListSection() {
         waNumber={WA_NUMBER}
       />
 
-      <section id="pricelist" className="section-padding bg-surface">
+      <section id="pricelist" className="section-padding bg-gradient-to-b from-[#111111] to-[#080808]">
         <div className="section-container">
 
           {/* ── Section Header ── */}

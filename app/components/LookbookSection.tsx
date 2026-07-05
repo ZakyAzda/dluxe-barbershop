@@ -49,7 +49,7 @@ const GALLERY_IMAGES = [
 
 export default function LookbookSection() {
   return (
-    <section id="lookbook" className="section-padding bg-surface">
+    <section id="lookbook" className="section-padding bg-gradient-to-b from-[#111111] to-[#080808]">
       <div className="section-container">
 
         {/* ── Section Header ── */}

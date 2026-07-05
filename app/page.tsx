@@ -23,9 +23,6 @@ export default function HomePage() {
       {/* 1. Hero — full screen */}
       <HeroSection />
 
-      {/* ─── Visual Separator ─── */}
-      <span className="section-sep" aria-hidden="true" />
-
       {/* 2. Lookbook / Signature Cuts Gallery */}
       <LookbookSection />
 

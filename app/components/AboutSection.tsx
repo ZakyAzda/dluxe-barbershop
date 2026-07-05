@@ -21,7 +21,7 @@ const STATS = [
 
 export default function AboutSection() {
   return (
-    <section id="about" className="section-padding bg-base">
+    <section id="about" className="section-padding bg-gradient-to-b from-[#080808] to-[#111111]">
       <div className="section-container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 

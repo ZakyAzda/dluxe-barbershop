@@ -33,8 +33,14 @@ export default function HeroSection() {
           className="object-cover object-center"
         />
         {/* Multi-layer dark overlay for luxurious depth */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#080808]/80 via-[#080808]/60 to-[#080808]/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#080808]/90 via-[#080808]/40 to-[#111111]" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#080808]/70 via-transparent to-[#080808]/50" />
+        
+        {/* Fade gradasi yang sangat lembut di 1/3 bagian bawah layar */}
+        <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-[#111111] via-[#111111]/80 to-transparent" />
+        
+        {/* Garis gradasi emas yang samar-samar (glowing) sebagai transisi elegan */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#c9a84c]/50 to-transparent shadow-[0_0_30px_rgba(201,168,76,0.4)]" />
       </div>
 
       {/* ── Decorative grain texture overlay ── */}
