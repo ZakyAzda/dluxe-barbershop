@@ -14,7 +14,7 @@ import { motion } from "framer-motion";
 const luxuryEase: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
 
 const STATS = [
-  { value: "2026", label: "Tahun Berdiri" },
+  { value: "2025", label: "Tahun Berdiri" },
   { value: "500+", label: "Klien Puas" },
   { value: "100%", label: "Profesional" },
 ];
